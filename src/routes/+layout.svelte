@@ -1,5 +1,13 @@
 <script lang="ts">
+	import type { Snippet } from 'svelte';
+
 	import '../app.css';
+
+	type Props = {
+		children?: Snippet;
+	};
+
+	let { children }: Props = $props();
 
 	const LINKS = [
 		{
@@ -34,7 +42,7 @@
 </header>
 
 <main>
-	<slot></slot>
+	{@render children?.()}
 </main>
 
 <style>
